@@ -32,7 +32,7 @@ namespace WebApiAuthenticationSamples.Api
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "WebApiAuthenticationSamples.Api");
+                        c.SingleApiVersion("v1", "WebApi Authentication Samples");
 
                         // If your API has multiple versions, use "MultipleApiVersions" instead of "SingleApiVersion".
                         // In this case, you must provide a lambda that tells Swashbuckle which actions should be
@@ -96,7 +96,7 @@ namespace WebApiAuthenticationSamples.Api
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
-                        //c.IncludeXmlComments(GetXmlCommentsPath());
+                        c.IncludeXmlComments(GetXmlCommentsPath());
 
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
                         // exposed in your API. However, there may be occasions when more control of the output is needed.
@@ -224,6 +224,11 @@ namespace WebApiAuthenticationSamples.Api
                         //
                         //c.EnableOAuth2Support("test-client-id", "test-realm", "Swagger UI");
                     });
+        }
+
+        private static string GetXmlCommentsPath()
+        {
+            return $@"{System.AppDomain.CurrentDomain.BaseDirectory}\bin\WebApiAuthenticationSamples.Api.XML";
         }
     }
 }
