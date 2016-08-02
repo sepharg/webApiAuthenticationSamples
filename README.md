@@ -11,6 +11,6 @@ I´ve added a swagger page to showcase all of the Api´s methods, just start the
 
 Provided as part of the solution are:
 
- - BasicAuthenticationFilterAttribute: Authorization filter that can be added to Controllers or Actions to authenticate using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
- - DigestAuthenticationFilterAttribute: Authorization filter that can be added to Controllers or Actions to authenticate using [Digest Authentication](https://en.wikipedia.org/wiki/Digest_access_authentication)
+ - **BasicAuthenticationFilterAttribute**: Authorization filter that can be added to Controllers or Actions to authenticate using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
+ - **DigestAuthenticationFilterAttribute**: Authorization filter that can be added to Controllers or Actions to authenticate using [Digest Authentication](https://en.wikipedia.org/wiki/Digest_access_authentication)
 
