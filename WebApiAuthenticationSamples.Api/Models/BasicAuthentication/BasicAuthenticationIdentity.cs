@@ -1,6 +1,6 @@
 ﻿using System.Security.Principal;
 
-namespace WebApiAuthenticationSamples.Api.Models
+namespace WebApiAuthenticationSamples.Api.Models.BasicAuthentication
 {
     public class BasicAuthenticationIdentity : GenericIdentity
     {

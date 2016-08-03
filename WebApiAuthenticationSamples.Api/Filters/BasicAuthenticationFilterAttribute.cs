@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using WebApiAuthenticationSamples.Api.Models;
+using WebApiAuthenticationSamples.Api.Models.BasicAuthentication;
 
 namespace WebApiAuthenticationSamples.Api.Filters
 {
@@ -20,7 +22,7 @@ namespace WebApiAuthenticationSamples.Api.Filters
                 {
                     var dnsHost = actionContext.Request.RequestUri.DnsSafeHost;
                     actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
-                    actionContext.Response.Headers.Add("WWW-Authenticate", $"Basic realm=\"{dnsHost}\"");
+                    actionContext.Response.Headers.WwwAuthenticate.Add(new AuthenticationHeaderValue("Basic", $"realm=\"{dnsHost}\""));
                 }
                 else
                 {
@@ -42,10 +44,8 @@ namespace WebApiAuthenticationSamples.Api.Filters
                         actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
                     };
 
-                    var principal = new GenericPrincipal(identity, null);
-
-                    Thread.CurrentPrincipal = principal;
-                    actionContext.RequestContext.Principal = principal;
+                    // Client is authentic, therefore we create a principal here.
+                    AuthenticationHelper.SetCurrentPrincipal(actionContext, username, password);
                 }
             }
             catch (Exception)

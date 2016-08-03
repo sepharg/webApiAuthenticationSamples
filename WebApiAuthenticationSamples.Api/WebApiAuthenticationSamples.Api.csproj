@@ -178,10 +178,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthenticationTestController.cs" />
     <Compile Include="Filters\BasicAuthenticationFilterAttribute.cs" />
+    <Compile Include="Filters\DigestAuthenticationFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BasicAuthenticationIdentity.cs" />
+    <Compile Include="Models\AuthenticationHelper.cs" />
+    <Compile Include="Models\BasicAuthentication\BasicAuthenticationIdentity.cs" />
+    <Compile Include="Models\DigestAuthentication\HashExtensions.cs" />
+    <Compile Include="Models\DigestAuthentication\Header.cs" />
+    <Compile Include="Models\DigestAuthentication\Nonce.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
