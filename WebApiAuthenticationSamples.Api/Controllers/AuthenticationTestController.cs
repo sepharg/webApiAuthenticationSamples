@@ -4,7 +4,7 @@ using WebApiAuthenticationSamples.Api.Filters;
 
 namespace WebApiAuthenticationSamples.Api.Controllers
 {
-    [RoutePrefix("api/authenticationTest")]
+    //[RoutePrefix("api/authenticationTest")] => had to remove this to enable self hosting.
     public class AuthenticationTestController : ApiController
     {
         /// <summary>
