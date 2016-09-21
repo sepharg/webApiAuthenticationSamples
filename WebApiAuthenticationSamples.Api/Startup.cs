@@ -19,17 +19,8 @@ namespace WebApiAuthenticationSamples.Api
             WebApiConfig.Register(configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             // Execute any other ASP.NET Web API-related initialization, i.e. IoC, authentication, logging, mapping, DB, etc.
-            ConfigureAuth(app);
+            // ConfigureAuth(app);
             app.UseWebApi(configuration);
-            /*
-            HttpConfiguration config = new HttpConfiguration();
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
-
-            app.UseWebApi(config);*/
         }
     }
 }

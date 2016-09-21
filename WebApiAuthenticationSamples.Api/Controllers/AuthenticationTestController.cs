@@ -4,7 +4,7 @@ using WebApiAuthenticationSamples.Api.Filters;
 
 namespace WebApiAuthenticationSamples.Api.Controllers
 {
-    //[RoutePrefix("api/authenticationTest")] => had to remove this to enable self hosting.
+    [RoutePrefix("api/authenticationTest")]
     public class AuthenticationTestController : ApiController
     {
         /// <summary>
@@ -13,7 +13,7 @@ namespace WebApiAuthenticationSamples.Api.Controllers
         /// <returns>A message indicating that authentication was successfull or Unauthorized HTTP code otherwise.</returns>
         [BasicAuthenticationFilter]
         [HttpGet]
-        [Route("api/authenticationTest/testbasicauth")]
+        [Route("testbasicauth")]
         public string TestBasicAuth()
         {
             // if authentication fails, we won´t reach the controller and an Unauthorized response will be shortcircuited by the authentication filter.
@@ -26,7 +26,7 @@ namespace WebApiAuthenticationSamples.Api.Controllers
         /// <returns>A message indicating that authentication was successfull or Unauthorized HTTP code otherwise.</returns>
         [DigestAuthenticationFilter]
         [HttpGet]
-        [Route("api/authenticationTest/testdigestauth")]
+        [Route("testdigestauth")]
         public string TestDigestAuth()
         {
             // if authentication fails, we won´t reach the controller and an Unauthorized response will be shortcircuited by the authentication filter.
