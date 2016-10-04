@@ -38,6 +38,7 @@ namespace WebApiAuthenticationSamples.Api.Models.DigestAuthentication
 
         public string Cnonce { get; private set; }
         public string Nonce { get; private set; }
+        public string Opaque { get { return "randomStringProvidedByServer"; } }
         public string Realm { get; private set; }
         public string UserName { get; private set; }
         public string Uri { get; private set; }
@@ -66,6 +67,7 @@ namespace WebApiAuthenticationSamples.Api.Models.DigestAuthentication
             header.AppendFormat("realm=\"{0}\"", Realm);
             header.AppendFormat(", nonce=\"{0}\"", Nonce);
             header.AppendFormat(", qop=\"{0}\"", "auth");
+            header.AppendFormat(", opaque=\"{0}\"", Opaque);
             return header.ToString();
         }
     }

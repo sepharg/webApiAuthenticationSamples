@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Owin.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using RestSharp;
+using WebApiAuthenticationSamples.Api.Tests.Helpers;
 
 namespace WebApiAuthenticationSamples.Api.Tests
 {
@@ -40,6 +42,28 @@ namespace WebApiAuthenticationSamples.Api.Tests
                 Console.WriteLine("Response StatusCode: " + (int)response.StatusCode);
                 Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
             }
+        }
+
+        [TestMethod]
+        public void ValidUserPassword_DigestAuth_Passes()
+        {
+            var client = new RestClient(@"http://localhost:9443/")
+            {
+                Authenticator = new DigestAuthenticator("validUser", "validUser")
+            };
+
+            var request = new RestRequest
+            {
+                Resource = "api/authenticationTest/testdigestauth",
+                RequestFormat = DataFormat.Json,
+                Method = Method.GET
+            };
+
+            var response = client.Execute(request);
+
+            // ... Check Status Code                                
+            Console.WriteLine("Response StatusCode: " + (int)response.StatusCode);
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
     }
 }
