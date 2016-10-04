@@ -15,3 +15,4 @@ Provided as part of the solution are:
  - **BasicAuthenticationFilterAttribute**: Authorization filter that can be added to Controllers or Actions to authenticate using [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) - http://localhost:40598/api/authenticationTest/testbasicauth
  - **DigestAuthenticationFilterAttribute**: Authorization filter that can be added to Controllers or Actions to authenticate using [Digest Authentication](https://en.wikipedia.org/wiki/Digest_access_authentication) - http://localhost:40598/api/authenticationTest/testdigestauth
 
+Note: To run the unit tests, start visual studio as administrator, otherwise it won´t let you create the web server.
